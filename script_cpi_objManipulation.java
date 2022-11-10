@@ -194,30 +194,19 @@ def scriptWithoutObject(message, jsonObject, pReturnHomeOffice, arrayJsonResult)
 	}
 
 	switch (empresaFuncionario) {
-		case 'UOLB': //UOL
-		case 'INGR':
-		case 'NETP':
+        //Uol Cases
+		case 'UOLB': case 'INGR': case 'NETP':
 			logoEmpresaFuncionario = 'https://ucarecdn.com/2a4c1696-15fc-4c08-98b6-f3262726fc00/positivo.png'
 			break;
-
-		case 'TETD': //PAGSEGURO
-		case 'CRED':
-		case 'BANS':
-		case 'CONC':
-		case 'BOAC':
-		case 'R2TC':
-		case 'TILI':
-		case 'MOIP':
-		case 'YAMI':
-		case 'ZYGO':
+        //PagSeguro Cases
+		case 'TETD': case 'CRED': case 'BANS': case 'CONC': case 'BOAC': case 'R2TC': case 'TILI': case 'MOIP': case 'YAMI': case 'ZYGO':
 			logoEmpresaFuncionario = 'https://ucarecdn.com/f9f47914-94ef-49c7-b878-78b560d3b262/PagBankPagSeguro.png'
 			break;
-
-		case 'UOLC': //EDTECH
-		case 'CIAT':
+        //Edtech Cases
+		case 'UOLC': case 'CIAT':
 			logoEmpresaFuncionario = 'https://ucarecdn.com/143054c4-0f20-4fac-a793-e3f1a1a101c0/LogoEdTech.png'
 			break;
-
+        //Edge Uol Cases
 		case 'Edge UOL':
 			logoEmpresaFuncionario = 'https://ucarecdn.com/b64ee8df-3d50-418a-ad52-81d92b24e32f/edge_cor_hor_positivo.png'
 			break;
