@@ -30,17 +30,23 @@ def scriptWithoutObject(message, jsonObject, pReturnHomeOffice, arrayJsonResult)
 	}
 
 	if (jsonObject.PerPerson.PerPerson.emailNav == '') {
-		emailFuncionario
+		emailFuncionario = jsonObject.PerPerson.PerPerson.find {
+			element -> element = jsonObject.PerPerson.PerPerson.emailNav
+		}
+
+		if (emailFuncionario == null) {
+			emailFuncionario = ''
+		}
 	} else {
 		PerEmail = jsonObject.PerPerson.PerPerson.emailNav.PerEmail
 		if (PerEmail.getClass() == java.util.ArrayList) {
-			if (PerEmail.emailType[0] == '59895') {
+			if (PerEmail.emailType[0] == '59895' && PerEmail.emailType[0] != '59894') {
 				emailFuncionario = PerEmail.emailAddress[0]
 			} else {
-				emailFuncionario = PerEmail.emailAddress
+				emailFuncionario = PerEmail.emailAddress[1]
 			}
 		} else {
-			if (PerEmail.emailType == '59895') {
+			if (PerEmail.emailType == '59895' && PerEmail.emailType != '59894') {
 				emailFuncionario = PerEmail.emailAddress
 			} else {
 				emailFuncionario = PerEmail.emailAddress
@@ -51,10 +57,11 @@ def scriptWithoutObject(message, jsonObject, pReturnHomeOffice, arrayJsonResult)
 	if (jsonObject.PerPerson.PerPerson.phoneNav == '') {
 		celularFuncionario = jsonObject.PerPerson.PerPerson.find {
 			element -> element = jsonObject.PerPerson.PerPerson.phoneNav
-		}  
-        if(celularFuncionario == null){
-            celularFuncionario = ''
-        }
+		}
+
+		if (celularFuncionario == null) {
+			celularFuncionario = ''
+		}
 	} else {
 		PerPhone = jsonObject.PerPerson.PerPerson.phoneNav.PerPhone
 		if (PerPhone.getClass() == java.util.ArrayList) {
@@ -166,6 +173,7 @@ def scriptWithoutObject(message, jsonObject, pReturnHomeOffice, arrayJsonResult)
 	if (jsonObject.PerPerson.PerPerson.employmentNav.EmpEmployment.jobInfoNav == '') {
 		E_GestorFuncionario
 	} else {
+		EmpJobSwitch = jsonObject.PerPerson.PerPerson.employmentNav.EmpEmployment.jobInfoNav.EmpJob
 		if (EmpJobSwitch.getClass() == java.util.ArrayList) {
 			E_GestorFuncionario = EmpJobSwitch.customString18
 			switch (E_GestorFuncionario){
@@ -216,8 +224,8 @@ def scriptWithoutObject(message, jsonObject, pReturnHomeOffice, arrayJsonResult)
 
 	jsonFrom = JsonOutput.toJson(
 		'name': nomeFuncionario,
-		'email': 'lse_rcassola@uolinc.com',//emailFuncionario,
-		'phone': '(15)99775-7694'//celularFuncionario
+		'email': 'lse_rcassola@uolinc.com', //emailFuncionario,
+		'phone': '(15) 99775-7694' //celularFuncionario
 
 	)
 
