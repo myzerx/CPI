@@ -166,30 +166,32 @@ def scriptWithoutObject(message, jsonObject, pReturnHomeOffice, arrayJsonResult)
 	if (jsonObject.PerPerson.PerPerson.employmentNav.EmpEmployment.jobInfoNav == '') {
 		E_GestorFuncionario
 	} else {
-		EmpJobSwitch = jsonObject.PerPerson.PerPerson.employmentNav.EmpEmployment.jobInfoNav.EmpJob
 		if (EmpJobSwitch.getClass() == java.util.ArrayList) {
 			E_GestorFuncionario = EmpJobSwitch.customString18
-			if (E_GestorFuncionario == 'G2' || E_GestorFuncionario == 'G5' || E_GestorFuncionario == 'J2' || E_GestorFuncionario == 'J3' ||
-				E_GestorFuncionario == 'J4' || E_GestorFuncionario == 'J5' || E_GestorFuncionario == 'J6' || E_GestorFuncionario == 'P2' ||
-				E_GestorFuncionario == 'P3' || E_GestorFuncionario == 'P4' || E_GestorFuncionario == 'P5' || E_GestorFuncionario == 'P6' ||
-				E_GestorFuncionario == 'P9' || E_GestorFuncionario == 'PE' || E_GestorFuncionario == 'PM' || E_GestorFuncionario == 'PN' ||
-				E_GestorFuncionario == 'PR' || E_GestorFuncionario == 'PS' || E_GestorFuncionario == 'PX' || E_GestorFuncionario == 'PY') {
-				EGestorReturn = 'Sim'
-			} else {
-				EGestorReturn = 'não'
-			}
+			switch (E_GestorFuncionario){
+                case 'G2': case 'G5': case 'J2': case 'J3': case 'J4': case 'J5': case 'J6': case 'P2':  case 'P3': case 'P4': 
+                case 'P5': case 'P6': case 'P9': case 'PE': case 'PM': case 'PN': case 'PR': case 'PS':  case 'PX': case 'PY':
+                EGestorReturn = 'Sim'
+                break;
 
+                default:
+                EGestorReturn = 'Não'
+                break;
+            }
+			
+ 
 		} else {
-			E_GestorFuncionario = EmpJobSwitch.customString18
-			if (E_GestorFuncionario == 'G2' || E_GestorFuncionario == 'G5' || E_GestorFuncionario == 'J2' || E_GestorFuncionario == 'J3' ||
-				E_GestorFuncionario == 'J4' || E_GestorFuncionario == 'J5' || E_GestorFuncionario == 'J6' || E_GestorFuncionario == 'P2' ||
-				E_GestorFuncionario == 'P3' || E_GestorFuncionario == 'P4' || E_GestorFuncionario == 'P5' || E_GestorFuncionario == 'P6' ||
-				E_GestorFuncionario == 'P9' || E_GestorFuncionario == 'PE' || E_GestorFuncionario == 'PM' || E_GestorFuncionario == 'PN' ||
-				E_GestorFuncionario == 'PR' || E_GestorFuncionario == 'PS' || E_GestorFuncionario == 'PX' || E_GestorFuncionario == 'PY') {
-				EGestorReturn = 'Sim'
-			} else {
-				EGestorReturn = 'Não'
-			}
+            E_GestorFuncionario = EmpJobSwitch.customString18
+			switch (E_GestorFuncionario){
+                case 'G2': case 'G5': case 'J2': case 'J3': case 'J4': case 'J5': case 'J6': case 'P2':  case 'P3': case 'P4': 
+                case 'P5': case 'P6': case 'P9': case 'PE': case 'PM': case 'PN': case 'PR': case 'PS':  case 'PX': case 'PY':
+                EGestorReturn = 'Sim'
+                break;
+
+                default:
+                EGestorReturn = 'Não'
+                break;
+            }
 		}
 	}
 
